@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
-import BottomSheet, { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 const App = () => {
@@ -22,19 +22,17 @@ const App = () => {
   // renders
   return (
     <View style={styles.container}>
-      <BottomSheetModalProvider>
-        <BottomSheet
-          ref={bottomSheetRef}
-          index={1}
-          snapPoints={snapPoints}
-          onChange={handleSheetChanges}
-          enablePanDownToClose={true}
-        >
-          <View style={styles.contentContainer}>
-            <Text>Awesome 🎉</Text>
-          </View>
-        </BottomSheet>
-      </BottomSheetModalProvider>
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+        enablePanDownToClose={true}
+      >
+        <View style={styles.contentContainer}>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheet>
     </View>
   );
 };
