@@ -77,8 +77,12 @@ import com.android.build.OutputFile
  * ]
  */
 
+/*
+ * Hermes is required by react-native-reanimated. Make sure enableHermes is set 
+ * to true.
+ */
 project.ext.react = [
-    enableHermes: false,  // clean and rebuild if changing
+    enableHermes: true,  // clean and rebuild if changing
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"

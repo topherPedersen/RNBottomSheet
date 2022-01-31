@@ -10,6 +10,8 @@ import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import com.facebook.react.bridge.JSIModulePackage; // Required by react-native-reanimated & react-native-bottom-sheet
+import com.swmansion.reanimated.ReanimatedJSIModulePackage; // Required by react-native-reanimated & react-native-bottom-sheet
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -32,6 +34,14 @@ public class MainApplication extends Application implements ReactApplication {
         @Override
         protected String getJSMainModuleName() {
           return "index";
+        }
+
+        /* getJSIModulePackage required by react-native-reanimated & 
+         * react-native-bottom-sheet.
+         */
+        @Override
+        protected JSIModulePackage getJSIModulePackage() { 
+          return new ReanimatedJSIModulePackage();  
         }
       };
 

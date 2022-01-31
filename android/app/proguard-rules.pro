@@ -8,3 +8,8 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
+
+# Proguard rules for react-native-reanimated & react-native-bottom-sheet
+# https://docs.swmansion.com/react-native-reanimated/docs/fundamentals/installation/#proguard
+-keep class com.swmansion.reanimated.** { *; }
+-keep class com.facebook.react.turbomodule.** { *; }
