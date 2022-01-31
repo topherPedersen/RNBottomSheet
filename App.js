@@ -1,6 +1,16 @@
 import React, { useCallback, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
-import BottomSheet from '@gorhom/bottom-sheet';
+import BottomSheet, { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+
+/*
+const ExampleWithHoc = gestureHandlerRootHOC(() => (
+    <View>
+      <DraggableBox />
+    </View>
+  );
+);
+*/
 
 // NOTE: Working on iOS, gesture to dismiss NOT working on Android.
 const App = () => {
@@ -22,21 +32,25 @@ const App = () => {
   // renders
   return (
     <View style={styles.container}>
-      <BottomSheet
-        ref={bottomSheetRef}
-        index={1}
-        snapPoints={snapPoints}
-        onChange={handleSheetChanges}
-        enablePanDownToClose={true}
-      >
-        <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
-          <Button title="CLOSE" onPress={handleButtonPress}/>
-        </View>
-      </BottomSheet>
+      <BottomSheetModalProvider>
+        <BottomSheet
+          ref={bottomSheetRef}
+          index={1}
+          snapPoints={snapPoints}
+          // onChange={handleSheetChanges}
+          enablePanDownToClose={true}
+        >
+          <View style={styles.contentContainer}>
+            <Text>Awesome 🎉</Text>
+            <Button title="CLOSE" onPress={handleButtonPress}/>
+          </View>
+        </BottomSheet>
+      </BottomSheetModalProvider>
     </View>
   );
 };
+
+const AppContainer = gestureHandlerRootHOC(() => (<App />));
 
 const styles = StyleSheet.create({
   container: {
@@ -50,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default AppContainer;
