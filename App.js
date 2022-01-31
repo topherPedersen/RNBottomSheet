@@ -39,6 +39,11 @@ const App = () => {
   );
 };
 
+/*
+ * Must wrap component with gestureHandlerRootHOC on Android or the 
+ * <BottomSheet /> component will not respond to gestures to dismiss the 
+ * <BottomSheet />.
+ */
 const AppContainer = gestureHandlerRootHOC(() => (<App />));
 
 const styles = StyleSheet.create({
