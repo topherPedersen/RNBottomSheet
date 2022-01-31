@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 
 const App = () => {
