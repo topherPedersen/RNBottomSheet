@@ -1,26 +1,46 @@
-import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  Button,
-} from 'react-native';
+import React, { useCallback, useMemo, useRef } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import BottomSheet from '@gorhom/bottom-sheet';
 
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const App = () => {
+  // ref
+  const bottomSheetRef = useRef(null);
 
-  render() {
-    return(
-      <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-        <Text>RNBottomSheet Demo</Text>
-        <Button 
-          title="Toggle BottomSheet" 
-          onPress={ () => alert("TODO: Install & Toggle BottomSheet") } 
-        />
-      </SafeAreaView>
-    );
-  }
-}
+  // variables
+  const snapPoints = useMemo(() => ['25%', '50%'], []);
+
+  // callbacks
+  const handleSheetChanges = useCallback((index) => {
+    console.log('handleSheetChanges', index);
+  }, []);
+
+  // renders
+  return (
+    <View style={styles.container}>
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+      >
+        <View style={styles.contentContainer}>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheet>
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: 'grey',
+  },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+});
 
 export default App;
