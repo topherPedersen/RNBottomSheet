@@ -15,6 +15,10 @@ const App = () => {
     console.log('handleSheetChanges', index);
   }, []);
 
+  function handleButtonPress() {
+    bottomSheetRef.current.close();
+  }
+
   // renders
   return (
     <View style={styles.container}>
@@ -27,6 +31,7 @@ const App = () => {
       >
         <View style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>
+          <Button title="CLOSE" onPress={handleButtonPress}/>
         </View>
       </BottomSheet>
     </View>
