@@ -2,6 +2,7 @@ import React, { useCallback, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 
+// NOTE: Working on iOS, gesture to dismiss NOT working on Android.
 const App = () => {
   // ref
   const bottomSheetRef = useRef(null);
@@ -22,6 +23,7 @@ const App = () => {
         index={1}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
+        enablePanDownToClose={true}
       >
         <View style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>
