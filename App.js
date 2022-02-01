@@ -104,13 +104,14 @@ const CloseButton = (props) => {
     props.bottomSheetRef.current.close();
   };
 
-  const closeButtonStandardPosition = useRef(new Animated.Value(310)).current; // Right Hand Side of Screen
-  const closeButtonLeftPosition = useRef(new Animated.Value(0)).current; // Left Hand Side of Screen
+  const closeButtonStandardPosition = 310;
+  const closeButtonLeftPosition = 0;
+  const closeButtonAnimatedValue = useRef(new Animated.Value(closeButtonStandardPosition)).current; // Right Hand Side of Screen
 
   // TODO: Give this hook a different name to avoid confusion with other hook with same name
   const animateCloseButton = () => {
     // TODO: Test on Android
-    Animated.timing(animatedValue, {
+    Animated.timing(closeButtonAnimatedValue, {
       toValue: closeButtonLeftPosition,
       duration: closeButtonStandardPosition,
       useNativeDriver: false, 
@@ -121,6 +122,11 @@ const CloseButton = (props) => {
     if (props.shouldAnimateCloseButton) {
       console.log("useEffect > setCloseButtonAnimationInitiated");
       props.setCloseButtonAnimationInitiated();
+      /*
+       * Animate close button from left hand side of screen back to the 
+       * standard position on the right hand side of the screen.
+       */
+      animateCloseButton(); 
     } else {
       console.log("useEffect > else");
     }
@@ -131,7 +137,7 @@ const CloseButton = (props) => {
   return(
     <Animated.View 
       ref={closeButtonRef}
-      style={{position: 'absolute', backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', left: 310}}>
+      style={{position: 'absolute', backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', left: closeButtonAnimatedValue}}>
       <TouchableWithoutFeedback onPress={onPressCloseButton}>
         <Text style={{color: 'blue'}}>X</Text>
       </TouchableWithoutFeedback>
