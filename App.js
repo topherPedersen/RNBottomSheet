@@ -142,7 +142,7 @@ const CloseButton = (props) => {
   return(
     <Animated.View 
       ref={closeButtonRef}
-      style={{position: 'absolute', backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', left: closeButtonAnimatedValue}}>
+      style={{position: 'absolute', backgroundColor: 'transparent', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', left: closeButtonAnimatedValue}}>
       <TouchableWithoutFeedback onPress={onPressCloseButton}>
         <Text style={{color: 'blue'}}>X</Text>
       </TouchableWithoutFeedback>
