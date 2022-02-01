@@ -52,6 +52,16 @@ const BottomSheetContent = (props) => {
   }
 };
 
+const LeftBottomSheetNavButton = (props) => {
+  if (props.hide) {
+    return null;
+  }
+
+  return(
+    <Text style={{color: 'blue'}}>{'<'}</Text>
+  );
+}; 
+
 
 const App = () => {
   // ref
@@ -72,10 +82,12 @@ const App = () => {
   const scheduleAService = () => {
     setBottomSheetHeadingText('Schedule A Service');
     setComponentToDisplay('ScheduleAService');
+    setHideLeftBottomSheetNavButton(false);
   }
 
   const [bottomSheetHeadingText, setBottomSheetHeadingText] = useState('Schedule Now');
   const [componentToDisplay, setComponentToDisplay] = useState('ScheduleNow');
+  const [hideLeftBottomSheetNavButton, setHideLeftBottomSheetNavButton] = useState(true);
 
   // renders
   return (
@@ -91,6 +103,7 @@ const App = () => {
           {/* BottomSheet Heading Container */}
           <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
             <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+              <LeftBottomSheetNavButton hide={hideLeftBottomSheetNavButton} />
             </View>
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
