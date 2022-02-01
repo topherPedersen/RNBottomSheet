@@ -113,7 +113,12 @@ const CloseButton = (props) => {
     // TODO: Test on Android
     Animated.timing(closeButtonAnimatedValue, {
       toValue: closeButtonLeftPosition,
-      duration: closeButtonStandardPosition,
+      duration: 0,
+      useNativeDriver: false, 
+    }).start();
+    Animated.timing(closeButtonAnimatedValue, {
+      toValue: closeButtonStandardPosition,
+      duration: 334,
       useNativeDriver: false, 
     }).start();
   };
