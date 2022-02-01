@@ -5,61 +5,20 @@ import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 const ScheduleNow = (props) => {
   return(
-    <View style={styles.contentContainer}>
-      {/* BottomSheet Heading Container */}
-      <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
-        <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+      <>
+        {/* BottomSheet Cards */}
+        <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <TouchableWithoutFeedback onPress={ () => props.scheduleAService() }>
+            <Text>Schedule a Service</Text>
+          </TouchableWithoutFeedback>
         </View>
-        <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{}}>Schedule Now</Text>
-        </View>
-        <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{color: 'blue'}}>X</Text>
-        </View>
-      </View>
-      {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
-      <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
-      {/* BottomSheet Cards */}
-      <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-      <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-        <TouchableWithoutFeedback onPress={ () => props.scheduleAService() }>
-          <Text>Schedule a Service</Text>
-        </TouchableWithoutFeedback>
-      </View>
-      <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-      <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-    </View>
+        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+      </>
   );
 };
 
-const ScheduleAService = () => {
-  return(
-    <View style={styles.contentContainer}>
-      {/* BottomSheet Heading Container */}
-      <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
-        <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-        </View>
-        <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{}}>Schedule a Service</Text>
-        </View>
-        <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <Text style={{color: 'blue'}}>X</Text>
-        </View>
-      </View>
-      {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
-      <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
-      {/* BottomSheet Cards */}
-      <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-      <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-        <TouchableWithoutFeedback onPress={ () => alert("TODO: Add the animation!") }>
-          <Text>Schedule a Service</Text>
-        </TouchableWithoutFeedback>
-      </View>
-      <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-      <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-    </View>
-  );
-};
 
 const App = () => {
   // ref
@@ -97,8 +56,22 @@ const App = () => {
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
       >
-        <ScheduleNow scheduleAService={scheduleAService} />
-        {/* <ScheduleAService /> */}
+        <View style={styles.contentContainer}>
+          {/* BottomSheet Heading Container */}
+          <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
+            <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            </View>
+            <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+              <Text style={{}}>Schedule Now</Text>
+            </View>
+            <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+              <Text style={{color: 'blue'}}>X</Text>
+            </View>
+          </View>
+          {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
+          <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
+          <ScheduleNow scheduleAService={scheduleAService} />
+        </View>
       </BottomSheet>
     </View>
   );
