@@ -62,7 +62,7 @@ const BottomSheetContent = (props) => {
   }
 };
 
-const LeftBottomSheetNavButton = (props) => {
+const BackButton = (props) => {
   const onBackButtonPressed = () => {
     props.goBackToScheduleNow();
     props.animateCloseButton();
@@ -79,7 +79,7 @@ const LeftBottomSheetNavButton = (props) => {
   );
 }; 
 
-const RightBottomSheetNavButton = (props) => {
+const CloseButton = (props) => {
   return(
     <Animated.View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
       <Text style={{color: 'blue'}}>X</Text>
@@ -131,7 +131,7 @@ const App = () => {
           {/* BottomSheet Heading Container */}
           <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
             <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-              <LeftBottomSheetNavButton 
+              <BackButton 
                 hide={hideLeftBottomSheetNavButton} 
                 goBackToScheduleNow={goBackToScheduleNow} 
                 animateCloseButton={animateCloseButton} 
@@ -140,7 +140,7 @@ const App = () => {
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
             </View>
-            <RightBottomSheetNavButton />
+            <CloseButton />
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
