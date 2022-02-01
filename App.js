@@ -27,7 +27,7 @@ const ScheduleAService = (props) => {
         {/* BottomSheet Cards */}
         <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
         <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <TouchableWithoutFeedback onPress={ () => props.scheduleAService() }>
+          <TouchableWithoutFeedback>
             <Text>TODO: CHANGE THIS SCREEN</Text>
           </TouchableWithoutFeedback>
         </View>
