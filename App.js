@@ -63,7 +63,7 @@ const BottomSheetContent = (props) => {
 const BackButton = (props) => {
   const onBackButtonPressed = () => {
     props.goBackToScheduleNow();
-    props.animateCloseButton();
+    props.triggerAnimateCloseButton();
   };
 
   if (props.hide) {
