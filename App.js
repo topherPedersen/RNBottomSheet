@@ -24,17 +24,29 @@ const ScheduleNow = (props) => {
 const ScheduleAService = (props) => {
   return(
       <>
-        {/* BottomSheet Cards */}
-        {/*
-        <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-          <TouchableWithoutFeedback>
-            <Text>TODO: CHANGE THIS SCREEN</Text>
-          </TouchableWithoutFeedback>
+        {/* BottomSheet Options List */}
+        {/* Option 1: Mammography */}
+        <View style={{width: '100%', height: 50, marginTop: 25, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
+          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}></View>
+          <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={{}}>Mammography</Text>
+          </View>
+          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={{color: 'blue'}}>{'>'}</Text>
+          </View>
         </View>
-        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
-        */}
+        {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
+        <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
+        {/* Option 2: Vaccines */}
+        <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
+          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}></View>
+          <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={{}}>Vaccines</Text>
+          </View>
+          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <Text style={{color: 'blue'}}>{'>'}</Text>
+          </View>
+        </View>
       </>
   );
 };
