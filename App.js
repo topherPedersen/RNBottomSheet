@@ -31,7 +31,8 @@ const App = () => {
       >
         <View style={styles.contentContainer}>
           {/* BottomSheet Heading Container */}
-          <View style={{width: '100%', height: 50}}>
+          <View style={{width: '100%', height: 50, justifyContent: 'center'}}>
+            <Text style={{textAlign: 'center', marginBottom: 7}}>Schedule Now</Text>
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
