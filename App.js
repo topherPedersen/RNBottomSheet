@@ -30,7 +30,11 @@ const App = () => {
         enablePanDownToClose={true}
       >
         <View style={styles.contentContainer}>
-          {/* Stuff Goes Here */}
+          {/* BottomSheet Heading Container */}
+          <View style={{width: '100%', height: 50}}>
+          </View>
+          {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
+          <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
         </View>
       </BottomSheet>
     </View>
