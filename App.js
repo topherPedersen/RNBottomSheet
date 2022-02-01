@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback, Animated } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
@@ -98,14 +98,15 @@ const CloseButton = (props) => {
 
 // New <CloseButton /> with Attempt to Add Animation (Will need to use absolute position. Will probably break some stuff at first.)
 const CloseButton = (props) => {
-  // const onPressCloseButton = () => {
-  //   props.bottomSheetRef.current.close();
-  // };
+  const onPressCloseButton = () => {
+    props.bottomSheetRef.current.close();
+  };
 
   const closeButtonRef = useRef(null);
 
   // DEBUG CloseButton POSITION
   // HOW TO: Get Position of Element in React-Native: https://stackoverflow.com/questions/30096038/react-native-getting-the-position-of-an-element
+  /*
   const onPressCloseButton = () => {
     closeButtonRef.current.measure( (fx, fy, width, height, px, py) => {
       let debugStr = '';
@@ -118,6 +119,18 @@ const CloseButton = (props) => {
       alert(debugStr);
     })
   };
+  */
+
+  useEffect(() => {
+    if (props.shouldAnimateCloseButton) {
+      alert("useEffect > setCloseButtonAnimationInitiated");
+      props.setCloseButtonAnimationInitiated();
+    } else {
+      alert("useEffect > else");
+    }
+  });
+
+
 
   return(
     <Animated.View 
@@ -153,12 +166,18 @@ const App = () => {
   }
 
   const animateCloseButton = () => {
-    alert("TODO: Add close button animation");
+    // alert("TODO: Add close button animation");
+    setShouldAnimateCloseButton(true);
   };
 
   const [bottomSheetHeadingText, setBottomSheetHeadingText] = useState('Schedule Now');
   const [componentToDisplay, setComponentToDisplay] = useState('ScheduleNow');
   const [hideLeftBottomSheetNavButton, setHideLeftBottomSheetNavButton] = useState(true);
+  const [shouldAnimateCloseButton, setShouldAnimateCloseButton] = useState(false);
+
+  const setCloseButtonAnimationInitiated = () => {
+    setShouldAnimateCloseButton(false);
+  };
 
   // renders
   return (
@@ -185,6 +204,8 @@ const App = () => {
             </View>
             <CloseButton 
               bottomSheetRef={bottomSheetRef} 
+              shouldAnimateCloseButton={shouldAnimateCloseButton}
+              setCloseButtonAnimationInitiated={setCloseButtonAnimationInitiated}
             />
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
