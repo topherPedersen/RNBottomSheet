@@ -88,9 +88,7 @@ const CloseButton = (props) => {
   const closeButtonLeftPosition = 0;
   const closeButtonAnimatedValue = useRef(new Animated.Value(closeButtonStandardPosition)).current; // Right Hand Side of Screen
 
-  // TODO: Give this hook a different name to avoid confusion with other hook with same name
   const animateCloseButton = () => {
-    // TODO: Test on Android
     Animated.timing(closeButtonAnimatedValue, {
       toValue: closeButtonLeftPosition,
       duration: 0,
@@ -152,8 +150,7 @@ const App = () => {
     setHideLeftBottomSheetNavButton(true);
   }
 
-  const animateCloseButton = () => {
-    // alert("TODO: Add close button animation");
+  const triggerAnimateCloseButton = () => {
     setShouldAnimateCloseButton(true);
   };
 
@@ -183,7 +180,7 @@ const App = () => {
               <BackButton 
                 hide={hideLeftBottomSheetNavButton} 
                 goBackToScheduleNow={goBackToScheduleNow} 
-                animateCloseButton={animateCloseButton} 
+                triggerAnimateCloseButton={triggerAnimateCloseButton} 
               />
             </View>
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
