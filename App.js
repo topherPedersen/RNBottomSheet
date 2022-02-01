@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
@@ -19,6 +19,35 @@ const ScheduleNow = (props) => {
   );
 };
 
+const ScheduleAService = (props) => {
+  return(
+      <>
+        {/* BottomSheet Cards */}
+        <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <TouchableWithoutFeedback onPress={ () => props.scheduleAService() }>
+            <Text>TODO: CHANGE THIS SCREEN</Text>
+          </TouchableWithoutFeedback>
+        </View>
+        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+        <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+      </>
+  );
+};
+
+const BottomSheetContent = (props) => {
+  switch(props.componentToDisplay) {
+    case 'ScheduleNow':
+      return <ScheduleNow scheduleAService={props.scheduleAService} />;
+      break;
+    case 'ScheduleAService':
+      return <ScheduleAService />;
+      break;
+    default:
+      return null;
+  }
+};
+
 
 const App = () => {
   // ref
@@ -36,15 +65,11 @@ const App = () => {
     bottomSheetRef.current.close();
   }
 
-  function scheduleAService() {
-    alert("scheduleAService");
+  const scheduleAService = () => {
+    setComponentToDisplay('ScheduleAService');
   }
 
-  // TODO: Need to use the context API to call a hook from the <ScheduleNow />
-  // component which triggers here in the <App /> component.
-
-  // TODO: Maybe need to refactor to where the BottomSheetHeading is it's own
-  // component and not tied to the BottomSheetContent.
+  const [componentToDisplay, setComponentToDisplay] = useState('ScheduleNow');
 
   // renders
   return (
@@ -70,7 +95,11 @@ const App = () => {
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
-          <ScheduleNow scheduleAService={scheduleAService} />
+          {/* <ScheduleNow scheduleAService={scheduleAService} /> */}
+          <BottomSheetContent 
+            componentToDisplay={componentToDisplay} 
+            scheduleAService={scheduleAService} 
+          />
         </View>
       </BottomSheet>
     </View>
