@@ -3,8 +3,6 @@ import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback,
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
-// TODO: Can you fix prop drilling with the Context API?
-
 const ScheduleNow = (props) => {
   return(
       <>
@@ -79,24 +77,6 @@ const BackButton = (props) => {
   );
 }; 
 
-// Old Working <CloseButton /> with No Animation
-/*
-const CloseButton = (props) => {
-  const onPressCloseButton = () => {
-    props.bottomSheetRef.current.close();
-  };
-
-  return(
-    <Animated.View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-      <TouchableWithoutFeedback onPress={onPressCloseButton}>
-        <Text style={{color: 'blue'}}>X</Text>
-      </TouchableWithoutFeedback>
-    </Animated.View>
-  );
-}; 
-*/
-
-// New <CloseButton /> with Attempt to Add Animation (Will need to use absolute position. Will probably break some stuff at first.)
 const CloseButton = (props) => {
   const closeButtonRef = useRef(null);
 
