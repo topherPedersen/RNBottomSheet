@@ -36,12 +36,12 @@ const App = () => {
             <Text style={{alignSelf: 'center'}}>Schedule Now</Text>
             <Text style={{alignSelf: 'center', color: 'blue'}}>X</Text>
             */}
-            <View style={{backgroundColor: 'red', width: '33%', height: '100%'}}>
+            <View style={{backgroundColor: 'red', width: '20%', height: '100%'}}>
             </View>
-            <View style={{backgroundColor: 'yellow', width: '33%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{backgroundColor: 'yellow', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>Schedule Now</Text>
             </View>
-            <View style={{backgroundColor: 'green', width: '33%', height: '100%'}}>
+            <View style={{backgroundColor: 'green', width: '20%', height: '100%'}}>
             </View>
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
