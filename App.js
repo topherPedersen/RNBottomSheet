@@ -80,9 +80,15 @@ const BackButton = (props) => {
 }; 
 
 const CloseButton = (props) => {
+  const onPressCloseButton = () => {
+    props.bottomSheetRef.current.close();
+  };
+
   return(
     <Animated.View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-      <Text style={{color: 'blue'}}>X</Text>
+      <TouchableWithoutFeedback onPress={onPressCloseButton}>
+        <Text style={{color: 'blue'}}>X</Text>
+      </TouchableWithoutFeedback>
     </Animated.View>
   );
 }; 
@@ -140,7 +146,7 @@ const App = () => {
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
             </View>
-            <CloseButton />
+            <CloseButton bottomSheetRef={bottomSheetRef} />
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
