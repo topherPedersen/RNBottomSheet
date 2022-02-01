@@ -66,20 +66,13 @@ const LeftBottomSheetNavButton = (props) => {
 
 
 const App = () => {
-  // ref
   const bottomSheetRef = useRef(null);
 
-  // variables
   const snapPoints = useMemo(() => ['75%'], []);
 
-  // callbacks
   const handleSheetChanges = useCallback((index) => {
     console.log('handleSheetChanges', index);
   }, []);
-
-  function handleButtonPress() {
-    bottomSheetRef.current.close();
-  }
 
   const scheduleAService = () => {
     setBottomSheetHeadingText('Schedule A Service');
@@ -122,7 +115,6 @@ const App = () => {
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
-          {/* <ScheduleNow scheduleAService={scheduleAService} /> */}
           <BottomSheetContent 
             componentToDisplay={componentToDisplay} 
             scheduleAService={scheduleAService} 
