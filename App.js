@@ -77,6 +77,12 @@ const App = () => {
     bottomSheetRef.current.close();
   }
 
+  // TODO: Need to use the context API to call a hook from the <ScheduleNow />
+  // component which triggers here in the <App /> component.
+
+  // TODO: Maybe need to refactor to where the BottomSheetHeading is it's own
+  // component and not tied to the BottomSheetContent.
+
   // renders
   return (
     <View style={styles.container}>
