@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback 
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
-const ScheduleNow = () => {
+const ScheduleNow = (props) => {
   return(
     <View style={styles.contentContainer}>
       {/* BottomSheet Heading Container */}
@@ -22,7 +22,7 @@ const ScheduleNow = () => {
       {/* BottomSheet Cards */}
       <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
       <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-        <TouchableWithoutFeedback onPress={ () => alert("TODO: Add the animation!") }>
+        <TouchableWithoutFeedback onPress={ () => props.scheduleAService() }>
           <Text>Schedule a Service</Text>
         </TouchableWithoutFeedback>
       </View>
@@ -77,6 +77,10 @@ const App = () => {
     bottomSheetRef.current.close();
   }
 
+  function scheduleAService() {
+    alert("scheduleAService");
+  }
+
   // TODO: Need to use the context API to call a hook from the <ScheduleNow />
   // component which triggers here in the <App /> component.
 
@@ -93,7 +97,7 @@ const App = () => {
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
       >
-        <ScheduleNow />
+        <ScheduleNow scheduleAService={scheduleAService} />
         {/* <ScheduleAService /> */}
       </BottomSheet>
     </View>
