@@ -58,7 +58,9 @@ const LeftBottomSheetNavButton = (props) => {
   }
 
   return(
-    <Text style={{color: 'blue'}}>{'<'}</Text>
+    <TouchableWithoutFeedback onPress={props.goBackToScheduleNow}>
+      <Text style={{color: 'blue'}}>{'<'}</Text>
+    </TouchableWithoutFeedback>
   );
 }; 
 
@@ -85,6 +87,12 @@ const App = () => {
     setHideLeftBottomSheetNavButton(false);
   }
 
+  const goBackToScheduleNow = () => {
+    setBottomSheetHeadingText('Schedule Now');
+    setComponentToDisplay('ScheduleNow');
+    setHideLeftBottomSheetNavButton(true);
+  }
+
   const [bottomSheetHeadingText, setBottomSheetHeadingText] = useState('Schedule Now');
   const [componentToDisplay, setComponentToDisplay] = useState('ScheduleNow');
   const [hideLeftBottomSheetNavButton, setHideLeftBottomSheetNavButton] = useState(true);
@@ -103,7 +111,7 @@ const App = () => {
           {/* BottomSheet Heading Container */}
           <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
             <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-              <LeftBottomSheetNavButton hide={hideLeftBottomSheetNavButton} />
+              <LeftBottomSheetNavButton hide={hideLeftBottomSheetNavButton} goBackToScheduleNow={goBackToScheduleNow} />
             </View>
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
