@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback 
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
+// TODO: Can you fix prop drilling with the Context API?
+
 const ScheduleNow = (props) => {
   return(
       <>
