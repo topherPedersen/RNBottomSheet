@@ -32,8 +32,13 @@ const App = () => {
         <View style={styles.contentContainer}>
           {/* BottomSheet Heading Container */}
           <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'pink'}}>
+            {/*
             <Text style={{alignSelf: 'center'}}>Schedule Now</Text>
             <Text style={{alignSelf: 'center', color: 'blue'}}>X</Text>
+            */}
+            <View style={{backgroundColor: 'red', width: '33%', height: '100%'}}></View>
+            <View style={{backgroundColor: 'yellow', width: '33%', height: '100%'}}></View>
+            <View style={{backgroundColor: 'green', width: '33%', height: '100%'}}></View>
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
