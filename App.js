@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback, Animated } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
@@ -79,6 +79,14 @@ const LeftBottomSheetNavButton = (props) => {
   );
 }; 
 
+const RightBottomSheetNavButton = (props) => {
+  return(
+    <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+      <Text style={{color: 'blue'}}>X</Text>
+    </View>
+  );
+}; 
+
 
 const App = () => {
   const bottomSheetRef = useRef(null);
@@ -132,9 +140,7 @@ const App = () => {
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
             </View>
-            <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{color: 'blue'}}>X</Text>
-            </View>
+            <RightBottomSheetNavButton />
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
