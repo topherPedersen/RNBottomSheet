@@ -63,12 +63,17 @@ const BottomSheetContent = (props) => {
 };
 
 const LeftBottomSheetNavButton = (props) => {
+  const onBackButtonPressed = () => {
+    props.goBackToScheduleNow();
+    props.animateCloseButton();
+  };
+
   if (props.hide) {
     return null;
   }
 
   return(
-    <TouchableWithoutFeedback onPress={props.goBackToScheduleNow}>
+    <TouchableWithoutFeedback onPress={onBackButtonPressed}>
       <Text style={{color: 'blue'}}>{'<'}</Text>
     </TouchableWithoutFeedback>
   );
@@ -96,6 +101,10 @@ const App = () => {
     setHideLeftBottomSheetNavButton(true);
   }
 
+  const animateCloseButton = () => {
+    alert("TODO: Add close button animation");
+  };
+
   const [bottomSheetHeadingText, setBottomSheetHeadingText] = useState('Schedule Now');
   const [componentToDisplay, setComponentToDisplay] = useState('ScheduleNow');
   const [hideLeftBottomSheetNavButton, setHideLeftBottomSheetNavButton] = useState(true);
@@ -114,7 +123,11 @@ const App = () => {
           {/* BottomSheet Heading Container */}
           <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
             <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-              <LeftBottomSheetNavButton hide={hideLeftBottomSheetNavButton} goBackToScheduleNow={goBackToScheduleNow} />
+              <LeftBottomSheetNavButton 
+                hide={hideLeftBottomSheetNavButton} 
+                goBackToScheduleNow={goBackToScheduleNow} 
+                animateCloseButton={animateCloseButton} 
+              />
             </View>
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
