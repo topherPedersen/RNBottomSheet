@@ -25,6 +25,7 @@ const ScheduleAService = (props) => {
   return(
       <>
         {/* BottomSheet Cards */}
+        {/*
         <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
         <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
           <TouchableWithoutFeedback>
@@ -33,6 +34,7 @@ const ScheduleAService = (props) => {
         </View>
         <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
         <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+        */}
       </>
   );
 };
@@ -68,9 +70,11 @@ const App = () => {
   }
 
   const scheduleAService = () => {
+    setBottomSheetHeadingText('Schedule A Service');
     setComponentToDisplay('ScheduleAService');
   }
 
+  const [bottomSheetHeadingText, setBottomSheetHeadingText] = useState('Schedule Now');
   const [componentToDisplay, setComponentToDisplay] = useState('ScheduleNow');
 
   // renders
@@ -89,7 +93,7 @@ const App = () => {
             <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             </View>
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-              <Text style={{}}>Schedule Now</Text>
+              <Text style={{}}>{bottomSheetHeadingText}</Text>
             </View>
             <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{color: 'blue'}}>X</Text>
