@@ -98,35 +98,31 @@ const CloseButton = (props) => {
 
 // New <CloseButton /> with Attempt to Add Animation (Will need to use absolute position. Will probably break some stuff at first.)
 const CloseButton = (props) => {
+  const closeButtonRef = useRef(null);
+
   const onPressCloseButton = () => {
     props.bottomSheetRef.current.close();
   };
 
-  const closeButtonRef = useRef(null);
+  const closeButtonStandardPosition = useRef(new Animated.Value(310)).current; // Right Hand Side of Screen
+  const closeButtonLeftPosition = useRef(new Animated.Value(0)).current; // Left Hand Side of Screen
 
-  // DEBUG CloseButton POSITION
-  // HOW TO: Get Position of Element in React-Native: https://stackoverflow.com/questions/30096038/react-native-getting-the-position-of-an-element
-  /*
-  const onPressCloseButton = () => {
-    closeButtonRef.current.measure( (fx, fy, width, height, px, py) => {
-      let debugStr = '';
-      debugStr += 'Component width is: ' + width + '\n';
-      debugStr += 'Component height is: ' + height + '\n';
-      debugStr += 'X offset to frame: ' + fx + '\n';
-      debugStr += 'Y offset to frame: ' + fy + '\n';
-      debugStr += 'X offset to page: ' + px + '\n';
-      debugStr += 'Y offset to page: ' + py + '\n';
-      alert(debugStr);
-    })
+  // TODO: Give this hook a different name to avoid confusion with other hook with same name
+  const animateCloseButton = () => {
+    // TODO: Test on Android
+    Animated.timing(animatedValue, {
+      toValue: closeButtonLeftPosition,
+      duration: closeButtonStandardPosition,
+      useNativeDriver: false, 
+    }).start();
   };
-  */
 
   useEffect(() => {
     if (props.shouldAnimateCloseButton) {
-      alert("useEffect > setCloseButtonAnimationInitiated");
+      console.log("useEffect > setCloseButtonAnimationInitiated");
       props.setCloseButtonAnimationInitiated();
     } else {
-      alert("useEffect > else");
+      console.log("useEffect > else");
     }
   });
 
