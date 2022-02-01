@@ -81,9 +81,9 @@ const LeftBottomSheetNavButton = (props) => {
 
 const RightBottomSheetNavButton = (props) => {
   return(
-    <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+    <Animated.View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
       <Text style={{color: 'blue'}}>X</Text>
-    </View>
+    </Animated.View>
   );
 }; 
 
