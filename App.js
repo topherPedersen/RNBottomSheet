@@ -8,7 +8,7 @@ const App = () => {
   const bottomSheetRef = useRef(null);
 
   // variables
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const snapPoints = useMemo(() => ['75%'], []);
 
   // callbacks
   const handleSheetChanges = useCallback((index) => {
@@ -24,7 +24,7 @@ const App = () => {
     <View style={styles.container}>
       <BottomSheet
         ref={bottomSheetRef}
-        index={1}
+        index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
