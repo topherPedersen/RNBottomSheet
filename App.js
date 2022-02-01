@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef } from 'react';
-import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView, TouchableWithoutFeedback } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
@@ -46,7 +46,9 @@ const App = () => {
           {/* BottomSheet Cards */}
           <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
           <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10, flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
-            <Text>Schedule a Service</Text>
+            <TouchableWithoutFeedback onPress={ () => alert("TODO: Add the animation!") }>
+              <Text>Schedule a Service</Text>
+            </TouchableWithoutFeedback>
           </View>
           <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
           <View style={{width: '90%', height: 85, marginTop: 10, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
