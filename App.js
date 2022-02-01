@@ -27,11 +27,10 @@ const ScheduleAService = (props) => {
         {/* BottomSheet Options List */}
         {/* Option 1: Mammography */}
         <View style={{width: '100%', height: 50, marginTop: 25, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
-          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}></View>
-          <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{backgroundColor: 'pink', width: '80%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             <Text style={{}}>Mammography</Text>
           </View>
-          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{backgroundColor: 'purple', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             <Text style={{color: 'blue'}}>{'>'}</Text>
           </View>
         </View>
@@ -39,11 +38,10 @@ const ScheduleAService = (props) => {
         <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
         {/* Option 2: Vaccines */}
         <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
-          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}></View>
-          <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{backgroundColor: 'pink', width: '80%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             <Text style={{}}>Vaccines</Text>
           </View>
-          <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+          <View style={{backgroundColor: 'purple', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             <Text style={{color: 'blue'}}>{'>'}</Text>
           </View>
         </View>
