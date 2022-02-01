@@ -30,7 +30,7 @@ const App = () => {
         enablePanDownToClose={true}
       >
         <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
+          {/* Stuff Goes Here */}
         </View>
       </BottomSheet>
     </View>
