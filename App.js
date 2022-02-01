@@ -31,21 +31,21 @@ const App = () => {
       >
         <View style={styles.contentContainer}>
           {/* BottomSheet Heading Container */}
-          <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'pink'}}>
-            {/*
-            <Text style={{alignSelf: 'center'}}>Schedule Now</Text>
-            <Text style={{alignSelf: 'center', color: 'blue'}}>X</Text>
-            */}
-            <View style={{backgroundColor: 'red', width: '20%', height: '100%'}}>
+          <View style={{width: '100%', height: 50, alignContent: 'center', flexDirection: 'row', backgroundColor: 'white'}}>
+            <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
             </View>
-            <View style={{backgroundColor: 'yellow', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+            <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>Schedule Now</Text>
             </View>
-            <View style={{backgroundColor: 'green', width: '20%', height: '100%'}}>
+            <View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+              <Text style={{color: 'blue'}}>X</Text>
             </View>
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
+
+          <View style={{width: '90%', height: 85, marginTop: 30, backgroundColor: 'white', borderColor: '#C0C0C0', borderWidth: 1, borderRadius: 10}}></View>
+
         </View>
       </BottomSheet>
     </View>
