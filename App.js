@@ -79,6 +79,8 @@ const BackButton = (props) => {
   );
 }; 
 
+// Old Working <CloseButton /> with No Animation
+/*
 const CloseButton = (props) => {
   const onPressCloseButton = () => {
     props.bottomSheetRef.current.close();
@@ -86,6 +88,41 @@ const CloseButton = (props) => {
 
   return(
     <Animated.View style={{backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
+      <TouchableWithoutFeedback onPress={onPressCloseButton}>
+        <Text style={{color: 'blue'}}>X</Text>
+      </TouchableWithoutFeedback>
+    </Animated.View>
+  );
+}; 
+*/
+
+// New <CloseButton /> with Attempt to Add Animation (Will need to use absolute position. Will probably break some stuff at first.)
+const CloseButton = (props) => {
+  // const onPressCloseButton = () => {
+  //   props.bottomSheetRef.current.close();
+  // };
+
+  const closeButtonRef = useRef(null);
+
+  // DEBUG CloseButton POSITION
+  // HOW TO: Get Position of Element in React-Native: https://stackoverflow.com/questions/30096038/react-native-getting-the-position-of-an-element
+  const onPressCloseButton = () => {
+    closeButtonRef.current.measure( (fx, fy, width, height, px, py) => {
+      let debugStr = '';
+      debugStr += 'Component width is: ' + width + '\n';
+      debugStr += 'Component height is: ' + height + '\n';
+      debugStr += 'X offset to frame: ' + fx + '\n';
+      debugStr += 'Y offset to frame: ' + fy + '\n';
+      debugStr += 'X offset to page: ' + px + '\n';
+      debugStr += 'Y offset to page: ' + py + '\n';
+      alert(debugStr);
+    })
+  };
+
+  return(
+    <Animated.View 
+      ref={closeButtonRef}
+      style={{position: 'absolute', backgroundColor: 'white', width: '20%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
       <TouchableWithoutFeedback onPress={onPressCloseButton}>
         <Text style={{color: 'blue'}}>X</Text>
       </TouchableWithoutFeedback>
@@ -146,7 +183,9 @@ const App = () => {
             <View style={{backgroundColor: 'white', width: '60%', height: '100%', flexDirection: 'row', alignItems: 'center', justifyContent: 'center'}}>
               <Text style={{}}>{bottomSheetHeadingText}</Text>
             </View>
-            <CloseButton bottomSheetRef={bottomSheetRef} />
+            <CloseButton 
+              bottomSheetRef={bottomSheetRef} 
+            />
           </View>
           {/* Horizontal Line (Divide BottomSheet Heading from BottomSheet Content) */}
           <View style={{width: '100%', height: 1, backgroundColor: '#C0C0C0'}}></View>
