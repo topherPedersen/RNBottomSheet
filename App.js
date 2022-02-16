@@ -4,15 +4,15 @@ import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
 const App = () => {
-  // ref
   const bottomSheetRef = useRef(null);
 
-  // variables
   const snapPoints = useMemo(() => ['25%', '50%'], []);
 
-  // callbacks
   const handleSheetChanges = useCallback((index) => {
-    console.log('handleSheetChanges', index);
+    const sheetClosed = index === -1;
+    if (sheetClosed) {
+      setShowBottomNavigationSheet(false);
+    }
   }, []);
 
   function handleButtonPress() {
