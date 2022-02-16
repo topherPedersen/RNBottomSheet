@@ -52,7 +52,7 @@ const App = () => {
     }
 
     return(
-      <View style={{position: 'absolute', height: '100%', width: '100%', backgroundColor: 'pink'}}>
+      <View style={{position: 'absolute', opacity: 0.67, height: '100%', width: '100%', backgroundColor: 'black'}}>
       </View>
     );
   }
