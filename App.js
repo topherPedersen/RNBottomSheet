@@ -46,6 +46,17 @@ const App = () => {
     setShowBottomNavigationSheet(true);
   };
 
+  renderBottomSheetBackDrop = () => {
+    if (!showBottomNavigationSheet) {
+      return null;
+    }
+
+    return(
+      <View style={{position: 'absolute', height: '100%', width: '100%', backgroundColor: 'pink'}}>
+      </View>
+    );
+  }
+
   renderBottomNavigationSheet = () => {
     if (!showBottomNavigationSheet) {
       return null;
@@ -69,6 +80,7 @@ const App = () => {
   return(
     <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <Button title="Show Bottom Navigation Sheet" onPress={this.toggleBottomNavigationSheet}/>
+      {this.renderBottomSheetBackDrop()}
       {this.renderBottomNavigationSheet()}
     </SafeAreaView>
   );
