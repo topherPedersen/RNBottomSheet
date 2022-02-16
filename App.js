@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useRef } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
@@ -16,10 +16,15 @@ const App = () => {
   }, []);
 
   function handleButtonPress() {
+    setShowBottomNavigationSheet(false);
     bottomSheetRef.current.close();
   }
 
+  const [showBottomNavigationSheet, setShowBottomNavigationSheet] = useState(false);
+
+
   // renders
+  /*
   return (
     <View style={styles.container}>
       <BottomSheet
@@ -34,6 +39,38 @@ const App = () => {
         </View>
       </BottomSheet>
     </View>
+  );
+  */
+
+  toggleBottomNavigationSheet = () => {
+    setShowBottomNavigationSheet(true);
+  };
+
+  renderBottomNavigationSheet = () => {
+    if (!showBottomNavigationSheet) {
+      return null;
+    }
+
+    return(
+      <BottomSheet
+        ref={bottomSheetRef}
+        index={1}
+        snapPoints={snapPoints}
+        onChange={handleSheetChanges}
+        enablePanDownToClose={true}
+      >
+        <View style={styles.contentContainer}>
+          <Text>Awesome 🎉</Text>
+        </View>
+      </BottomSheet>
+    );
+  };
+
+  return(
+    <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Button title="Show Bottom Navigation Sheet" onPress={this.toggleBottomNavigationSheet}/>
+      {this.renderBottomNavigationSheet()}
+    </SafeAreaView>
   );
 };
 
