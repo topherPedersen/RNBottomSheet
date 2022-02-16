@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { View, Text, StyleSheet, Button, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Button, SafeAreaView, TouchableOpacity } from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 
@@ -80,7 +80,9 @@ const App = () => {
 
   return(
     <SafeAreaView style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Button title="Show Bottom Navigation Sheet" onPress={this.toggleBottomNavigationSheet}/>
+      <TouchableOpacity onPress={this.toggleBottomNavigationSheet}>
+        <Text>Show Bottom Navigation Sheet</Text>
+      </TouchableOpacity>
       {this.renderBottomSheetBackDrop()}
       {this.renderBottomNavigationSheet()}
     </SafeAreaView>
