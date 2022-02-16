@@ -69,6 +69,7 @@ const App = () => {
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
         enablePanDownToClose={true}
+        animateOnMount={true}
       >
         <View style={styles.contentContainer}>
           <Text>Awesome 🎉</Text>
